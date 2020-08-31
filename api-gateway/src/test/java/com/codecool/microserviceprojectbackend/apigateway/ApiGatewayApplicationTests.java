@@ -1,4 +1,4 @@
-package com.codecool.microserviceprojectbackend.apigateway.apigateway;
+package com.codecool.microserviceprojectbackend.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

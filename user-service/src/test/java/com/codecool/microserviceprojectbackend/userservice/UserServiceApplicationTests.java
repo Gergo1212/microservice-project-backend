@@ -1,10 +1,10 @@
-package com.codecool.microserviceprojectbackend.productservice.productservice;
+package com.codecool.microserviceprojectbackend.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductServiceApplicationTests {
+class UserServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
