@@ -18,6 +18,7 @@ public class DataInitializer {
     public void init() {
         productDao.addProduct(
                 Product.builder()
+                        .name("BMW")
                         .category("car")
                         .description("This is a very good car.")
                         .price(new BigDecimal(2000))
@@ -28,6 +29,7 @@ public class DataInitializer {
 
         productDao.addProduct(
                 Product.builder()
+                        .name("Old car")
                         .category("car")
                         .description("This is an old car but it still works.")
                         .price(new BigDecimal(500))
@@ -38,6 +40,7 @@ public class DataInitializer {
 
         productDao.addProduct(
                 Product.builder()
+                        .name("Old table")
                         .category("furniture")
                         .description("This is my old table.")
                         .price(new BigDecimal(8000))
