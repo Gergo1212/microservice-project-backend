@@ -61,7 +61,6 @@ public class ProductDaoDB implements ProductDao {
 
             productRepository.save(productToUpdate);
         }
-
         return productToUpdate;
     }
 
