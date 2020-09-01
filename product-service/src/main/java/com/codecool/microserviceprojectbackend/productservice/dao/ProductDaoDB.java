@@ -45,7 +45,7 @@ public class ProductDaoDB implements ProductDao {
     @Override
     public List<Product> searchProductsByName(String name) {
         log.info("search product by name: " + name);
-        return productRepository.findAllByNameContaining(name);
+        return productRepository.findAllByNameContainingIgnoreCase(name);
     }
 
 }
