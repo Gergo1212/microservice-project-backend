@@ -15,4 +15,5 @@ public interface ProductDao {
     Product deleteProduct(Long id);
 
     List<Product> searchProductsByName(String name);
+
 }
