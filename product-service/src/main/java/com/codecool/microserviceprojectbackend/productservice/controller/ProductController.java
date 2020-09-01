@@ -20,9 +20,9 @@ public class ProductController {
         return productDao.getAllProducts();
     }
 
-    @GetMapping("/{id}")
-    public Product getProduct(@PathVariable Long id) {
-        return productDao.getProduct(id);
+    @GetMapping("/{productId}")
+    public Product getProduct(@PathVariable Long productId) {
+        return productDao.getProduct(productId);
     }
 
     @PostMapping("")
@@ -38,6 +38,11 @@ public class ProductController {
     @GetMapping("/search/findByName")
     public List<Product> searchProductsByName(@RequestParam String name) {
         return productDao.searchProductsByName(name);
+    }
+
+    @PutMapping("/{productId}")
+    public Product updateProduct(@PathVariable Long productId, @RequestBody Product product) {
+        return productDao.updateProduct(productId, product);
     }
 
 }

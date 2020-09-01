@@ -48,4 +48,21 @@ public class ProductDaoDB implements ProductDao {
         return productRepository.findAllByNameContainingIgnoreCase(name);
     }
 
+    @Override
+    public Product updateProduct(Long productId, Product updatedProduct) {
+        Product productToUpdate = productRepository.findById(productId).orElse(null);
+
+        if (productToUpdate != null) {
+            productToUpdate.setName(updatedProduct.getName());
+            productToUpdate.setDescription(updatedProduct.getDescription());
+            productToUpdate.setCategory(updatedProduct.getCategory());
+            productToUpdate.setPrice(updatedProduct.getPrice());
+            productToUpdate.setImageUrl(updatedProduct.getImageUrl());
+
+            productRepository.save(productToUpdate);
+        }
+
+        return productToUpdate;
+    }
+
 }
