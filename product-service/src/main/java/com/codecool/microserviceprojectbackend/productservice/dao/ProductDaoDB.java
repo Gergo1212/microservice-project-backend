@@ -59,7 +59,11 @@ public class ProductDaoDB implements ProductDao {
             productToUpdate.setPrice(updatedProduct.getPrice());
             productToUpdate.setImageUrl(updatedProduct.getImageUrl());
 
-            productRepository.save(productToUpdate);
+            productRepository.saveAndFlush(productToUpdate);
+
+            log.info("updated product: " + productToUpdate);
+        } else {
+            log.info("product not found with id: " + productId);
         }
         return productToUpdate;
     }
