@@ -17,17 +17,20 @@ public class ProductDaoDB implements ProductDao {
 
     @Override
     public List<Product> getAllProducts() {
+        log.info("Get all products");
         return productRepository.findAll();
     }
 
     @Override
-    public Product getProduct(Long id) {
-        return productRepository.findById(id).orElse(null);
+    public Product getProduct(Long productId) {
+        log.info("Get product by productId: " + productId);
+        return productRepository.findById(productId).orElse(null);
     }
 
     @Override
     public Product addProduct(Product product) {
         productRepository.saveAndFlush(product);
+        log.info("added product: " + product);
         return product;
     }
 
@@ -35,11 +38,13 @@ public class ProductDaoDB implements ProductDao {
     public Product deleteProduct(Long id) {
         Product product = productRepository.findById(id).orElse(null);
         productRepository.deleteById(id);
+        log.info("product deleted: " + product);
         return product;
     }
 
     @Override
     public List<Product> searchProductsByName(String name) {
+        log.info("search product by name: " + name);
         return productRepository.findAllByNameContaining(name);
     }
 
