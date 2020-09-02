@@ -1,27 +1,24 @@
-package com.codecool.microserviceprojectbackend.userservice.model;
+package com.codecool.microserviceprojectbackend.apigateway.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserModel {
-
-    private Long id;
-
+public class UserData {
 
     private String username;
 
-
     private String password;
 
+    // roles of the user (ADMIN, USER,..)
+    @Builder.Default
     private List<String> roles = new ArrayList<>();
 }

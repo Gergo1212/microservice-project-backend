@@ -8,6 +8,9 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -25,6 +28,7 @@ public class DataInitializer implements CommandLineRunner {
         UserEntity user = UserEntity.builder()
                 .username("dinnye")
                 .password(passwordEncoder.encode("dinnye"))
+                .roles(Collections.singletonList("ROLE_USER"))
                 .build();
 
         userRepository.save(user);
@@ -32,6 +36,7 @@ public class DataInitializer implements CommandLineRunner {
         UserEntity admin = UserEntity.builder()
                 .username("admin")
                 .password(passwordEncoder.encode("admin"))
+                .roles(Arrays.asList("ROLE_USER", "ROLE_ADMIN"))
                 .build();
 
         userRepository.save(admin);
