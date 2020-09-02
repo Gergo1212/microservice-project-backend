@@ -1,4 +1,4 @@
-package com.codecool.microserviceprojectbackend.serviceregistry.serviceregistry;
+package com.codecool.microserviceprojectbackend.serviceregistry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
