@@ -4,6 +4,8 @@ package com.codecool.microserviceprojectbackend.userservice.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,4 +23,8 @@ public class UserEntity {
 
     @Column
     private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Builder.Default
+    private List<String> roles = new ArrayList<>();
 }
