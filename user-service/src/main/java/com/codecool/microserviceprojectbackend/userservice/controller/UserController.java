@@ -2,12 +2,14 @@ package com.codecool.microserviceprojectbackend.userservice.controller;
 
 import com.codecool.microserviceprojectbackend.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.*;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
@@ -26,6 +28,12 @@ public class UserController {
 
     @RequestMapping(path = "/registration",method = POST)
     public String registerUser(@RequestBody String userCredentials) {
+
+        return "helo";
+    }
+
+    @RequestMapping(path = "/getUser/{username}",method = GET)
+    public String getUser(@PathVariable String username) {
 
         return "helo";
     }
