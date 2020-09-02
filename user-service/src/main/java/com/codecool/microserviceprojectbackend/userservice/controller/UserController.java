@@ -14,7 +14,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping("/user")
+//@RequestMapping("/user-service")
 public class UserController {
 
     @Autowired
@@ -40,8 +40,10 @@ public class UserController {
 
     @RequestMapping(path = "/getUser/{username}",method = GET)
     public UserEntity getUser(@PathVariable String username) {
-
-        return userRepository.findByUsername(username);
+        System.out.println("ittevan");
+        UserEntity byUsername = userRepository.findByUsername(username);
+        System.out.println("byUsername " + byUsername);
+        return byUsername;
     }
 
 }
