@@ -17,4 +17,6 @@ public interface ProductDao {
     List<Product> searchProductsByName(String name);
 
     Product updateProduct(Long productId, Product product);
+
+    List<Product> getAllByUserId(Long userId);
 }

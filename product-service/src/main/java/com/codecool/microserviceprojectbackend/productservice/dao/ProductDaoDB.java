@@ -68,4 +68,9 @@ public class ProductDaoDB implements ProductDao {
         return productToUpdate;
     }
 
+    @Override
+    public List<Product> getAllByUserId(Long userId) {
+        return productRepository.findAllByUserId(userId);
+    }
+
 }
