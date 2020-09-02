@@ -1,14 +1,12 @@
 package com.codecool.microserviceprojectbackend.userservice.repository;
 
-import com.codecool.microserviceprojectbackend.userservice.entity.User;
-import org.springframework.data.domain.Example;
+import com.codecool.microserviceprojectbackend.userservice.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     boolean existsByUsername(String username);
 
-    User findByUsername(String username);
+    UserEntity findByUsername(String username);
 
 }

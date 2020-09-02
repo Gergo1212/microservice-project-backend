@@ -1,13 +1,14 @@
 package com.codecool.microserviceprojectbackend.userservice.controller;
 
+import com.codecool.microserviceprojectbackend.userservice.entity.UserEntity;
+import com.codecool.microserviceprojectbackend.userservice.model.UserModel;
+import com.codecool.microserviceprojectbackend.userservice.repository.UserRepository;
 import com.codecool.microserviceprojectbackend.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.awt.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -19,23 +20,28 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    /*
 
     @RequestMapping(path = "/signin",method = POST)
     public String signinUser(@RequestBody String userCredentials) {
 
         return "helo";
     }
+    
+     */
 
     @RequestMapping(path = "/registration",method = POST)
-    public String registerUser(@RequestBody String userCredentials) {
-
-        return "helo";
+    public boolean registerUser(@RequestBody UserModel userCredentials) {
+        return userService.registerUser(userCredentials);
     }
 
     @RequestMapping(path = "/getUser/{username}",method = GET)
-    public String getUser(@PathVariable String username) {
+    public UserEntity getUser(@PathVariable String username) {
 
-        return "helo";
+        return userRepository.findByUsername(username);
     }
 
 }
