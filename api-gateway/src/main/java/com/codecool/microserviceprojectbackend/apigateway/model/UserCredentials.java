@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserCredentials {
 
+    private Long id_;
     private String username;
     private String password;
 }

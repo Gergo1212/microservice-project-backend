@@ -51,6 +51,7 @@ public class AuthController {
         System.out.println("UserCredentials " + data);
         try {
             String username = data.getUsername();
+            Long id_ = data.getId_();
             System.out.println("username " + username);
             // authenticationManager.authenticate calls loadUserByUsername in CustomUserDetailsService
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
@@ -66,6 +67,7 @@ public class AuthController {
 
             Map<Object, Object> model = new HashMap<>();
             model.put("username", username);
+            model.put("userid", id_);
             model.put("roles", roles);
             model.put("token", token);
             return ResponseEntity.ok(model);
