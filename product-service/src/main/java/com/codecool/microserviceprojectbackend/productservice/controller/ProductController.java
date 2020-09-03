@@ -44,4 +44,9 @@ public class ProductController {
         return productDao.updateProduct(productId, product);
     }
 
+    @GetMapping("/user/{userId}")
+    public List<Product> getAllByUser(@PathVariable Long userId){
+        return productDao.getAllByUserId(userId);
+    }
+
 }

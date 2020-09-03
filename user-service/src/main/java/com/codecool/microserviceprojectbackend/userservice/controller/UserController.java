@@ -6,6 +6,9 @@ import com.codecool.microserviceprojectbackend.userservice.repository.UserReposi
 import com.codecool.microserviceprojectbackend.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -35,12 +38,15 @@ public class UserController {
         return userService.registerUser(userCredentials);
     }
 
-    @GetMapping(path = "/getUser/{username}")
+    @RequestMapping(path = "/getUser/{username}",method = GET)
     public UserEntity getUser(@PathVariable String username) {
-        System.out.println("ittevan");
-        UserEntity byUsername = userRepository.findByUsername(username);
-        System.out.println("byUsername " + byUsername);
-        return byUsername;
+
+        return userRepository.findByUsername(username);
+    }
+
+    @GetMapping("/users")
+    public List<UserEntity> getAllUsers(){
+        return userRepository.findAll();
     }
 
 }
