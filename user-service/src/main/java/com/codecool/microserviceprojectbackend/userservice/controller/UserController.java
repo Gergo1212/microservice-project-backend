@@ -23,16 +23,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    /*
-
-    @RequestMapping(path = "/signin",method = POST)
-    public String signinUser(@RequestBody String userCredentials) {
-
-        return "helo";
-    }
-    
-     */
-
     @RequestMapping(path = "/registration",method = POST)
     public boolean registerUser(@RequestBody UserModel userCredentials) {
         return userService.registerUser(userCredentials);
@@ -40,10 +30,7 @@ public class UserController {
 
     @RequestMapping(path = "/getUser/{username}",method = GET)
     public UserEntity getUser(@PathVariable String username) {
-        UserEntity byUsername = userRepository.findByUsername(username);
-
-        System.out.println("byuser: " + byUsername);
-        return byUsername;
+        return userRepository.findByUsername(username);
     }
 
     @GetMapping("/users")

@@ -53,22 +53,15 @@ public class AuthController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity login(@RequestBody UserCredentials data) {
-        System.out.println("UserCredentials " + data);
         try {
             String username = data.getUsername();
-            //Long id_ = data.getId_();
-            System.out.println("username " + username);
-            // authenticationManager.authenticate calls loadUserByUsername in CustomUserDetailsService
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
             List<String> roles = authentication.getAuthorities()
                     .stream()
                     .map(GrantedAuthority::getAuthority)
                     .collect(Collectors.toList());
 
-            System.out.println("roles " + roles);
-
             String token = jwtTokenServices.createToken(username, roles);
-            System.out.println(token);
             UserData user = restTemplate.getForObject("http://localhost:8091/user/getUser/" + username, UserData.class);
 
             Map<Object, Object> model = new HashMap<>();
