@@ -67,7 +67,7 @@ public class AuthController {
 
             Map<Object, Object> model = new HashMap<>();
             model.put("username", username);
-            model.put("id", id_);
+            model.put("userid", id_);
             model.put("roles", roles);
             model.put("token", token);
             return ResponseEntity.ok(model);
