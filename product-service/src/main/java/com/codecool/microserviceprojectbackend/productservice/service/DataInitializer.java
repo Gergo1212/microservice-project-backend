@@ -18,34 +18,34 @@ public class DataInitializer {
     public void init() {
         productDao.addProduct(
                 Product.builder()
-                        .name("BMW")
-                        .category("car")
-                        .description("This is a very good car.")
-                        .price(new BigDecimal(2000))
+                        .name("USB Typewriter")
+                        .category("Electronics")
+                        .description("The weighty feel of the springloaded keys, the motor-car styling, and the beautiful marks they print on the page all make for a rich writing experience that can make writer’s block melt away.")
+                        .price(new BigDecimal(10))
                         .userId(1L)
-                        .imageUrl("https://images.ctfassets.net/ro7z507xvlp4/4dT8bB4V612jeKhfuD3JlY/8b9c5980d9348449a6388103eecc561a/column_cgi_0019_bmw_1er_f40.png?q=80&fm=png")
+                        .imageUrl("https://s3.amazonaws.com/noupe/trans/wp-content/uploads/2010/09/unusualphotos11.jpg")
                         .build()
         );
 
         productDao.addProduct(
                 Product.builder()
-                        .name("Old car")
-                        .category("car")
-                        .description("This is an old car but it still works.")
-                        .price(new BigDecimal(500))
+                        .name("Bizarre Floating Phone Helmet")
+                        .category("Electronics")
+                        .description("The Isophone – an underwater telephone system means you can communicate with other swimmers while splashing around in the pool.")
+                        .price(new BigDecimal(60))
                         .userId(1L)
-                        .imageUrl("https://i0.wp.com/write.co.nz/wp-content/uploads/2017/12/broken-car-vintage.jpg?fit=640%2C426&ssl=1")
+                        .imageUrl("https://s3.amazonaws.com/noupe/trans/wp-content/uploads/2010/09/unusualphotos18.jpg")
                         .build()
         );
 
         productDao.addProduct(
                 Product.builder()
-                        .name("Old table")
-                        .category("furniture")
-                        .description("This is my old table.")
-                        .price(new BigDecimal(8000))
+                        .name("Rejuvenique Face Mask")
+                        .category("Beauty Products")
+                        .description("This creepy mask was intended to tighten facial muscles with... shock therapy. Consumers revealed that it feels as bad as it sounds.")
+                        .price(new BigDecimal(20))
                         .userId(2L)
-                        .imageUrl("https://lh3.googleusercontent.com/proxy/TIX9CczFGeWUTJhZ8caWDv-nmZgP1AZwCuseKseezQixeRlEJNuBcKZo27DrtwHAivpDfT1aaBJgV6LKchb8dLnbUpfTGmlrbBTnqSxzcYJppcaHfe95OKV9GfbMKsIpUokz2M3cxZS1")
+                        .imageUrl("https://static.boredpanda.com/blog/wp-content/uploads/2018/07/failed-products-innovations-technology-5b4765aad9b16__700.jpg")
                         .build()
         );
 
