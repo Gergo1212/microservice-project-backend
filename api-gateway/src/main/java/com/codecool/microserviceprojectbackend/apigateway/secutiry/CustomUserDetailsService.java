@@ -35,6 +35,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         UserData user = restTemplate.getForObject("http://localhost:8091/user/getUser/" + username, UserData.class);
 
+        System.out.println("user helo: " + user);
+
         if (user == null) {
             throw new UsernameNotFoundException("Username: " + username + " not found");
         }

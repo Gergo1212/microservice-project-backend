@@ -1,6 +1,7 @@
 package com.codecool.microserviceprojectbackend.apigateway.controller;
 
 import com.codecool.microserviceprojectbackend.apigateway.model.UserCredentials;
+import com.codecool.microserviceprojectbackend.apigateway.model.UserData;
 import com.codecool.microserviceprojectbackend.apigateway.secutiry.JwtTokenServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +20,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +36,9 @@ public class AuthController {
 
    // @Autowired
    // LoginService loginService;
+
+    @Autowired
+    RestTemplate restTemplate;
 
     private final AuthenticationManager authenticationManager;
 
@@ -51,7 +56,7 @@ public class AuthController {
         System.out.println("UserCredentials " + data);
         try {
             String username = data.getUsername();
-            Long id_ = data.getId_();
+            //Long id_ = data.getId_();
             System.out.println("username " + username);
             // authenticationManager.authenticate calls loadUserByUsername in CustomUserDetailsService
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
@@ -64,10 +69,11 @@ public class AuthController {
 
             String token = jwtTokenServices.createToken(username, roles);
             System.out.println(token);
+            UserData user = restTemplate.getForObject("http://localhost:8091/user/getUser/" + username, UserData.class);
 
             Map<Object, Object> model = new HashMap<>();
             model.put("username", username);
-            model.put("userid", id_);
+            model.put("userid", user.getId());
             model.put("roles", roles);
             model.put("token", token);
             return ResponseEntity.ok(model);

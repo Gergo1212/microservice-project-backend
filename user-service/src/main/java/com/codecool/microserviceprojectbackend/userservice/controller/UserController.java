@@ -40,8 +40,10 @@ public class UserController {
 
     @RequestMapping(path = "/getUser/{username}",method = GET)
     public UserEntity getUser(@PathVariable String username) {
+        UserEntity byUsername = userRepository.findByUsername(username);
 
-        return userRepository.findByUsername(username);
+        System.out.println("byuser: " + byUsername);
+        return byUsername;
     }
 
     @GetMapping("/users")
