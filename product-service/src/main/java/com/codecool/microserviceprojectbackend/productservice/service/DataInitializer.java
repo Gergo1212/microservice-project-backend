@@ -45,7 +45,7 @@ public class DataInitializer {
                         .description("This is my old table.")
                         .price(new BigDecimal(8000))
                         .userId(2L)
-                        .imageUrl("https://lh3.googleusercontent.com/proxy/TIX9CczFGeWUTJhZ8caWDv-nmZgP1AZwCuseKseezQixeRlEJNuBcKZo27DrtwHAivpDfT1aaBJgV6LKchb8dLnbUpfTGmlrbBTnqSxzcYJppcaHfe95OKV9GfbMKsIpUokz2M3cxZS1")
+                        .imageUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.turbosquid.com%2F3d-models%2Fold-table-3d-model-1219085&psig=AOvVaw3mbVPEVgaZGMQJkdB4pYe0&ust=1599232760805000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjJgb2lzesCFQAAAAAdAAAAABAD")
                         .build()
         );
 
